@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, timeout } from 'rxjs';
 
 export interface FeatureFlag {
   id: number;
@@ -28,5 +28,13 @@ export class FeatureFlagService {
 
   toggleFlag(id: number): Observable<FeatureFlag> {
     return this.http.put<FeatureFlag>(`${this.apiUrl}/${id}/toggle`, {});
+  }
+
+  createFlag(flag: FeatureFlag): Observable<FeatureFlag> {
+    return this.http.post<FeatureFlag>(this.apiUrl, flag);
+  }
+
+  deleteFlag(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
