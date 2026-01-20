@@ -15,7 +15,10 @@ public class FeatureFlagController {
     private FeatureFlagService service;
     
     @GetMapping
-    public List<FeatureFlag> getAllFlags() {
+    public List<FeatureFlag> getAllFlags(@RequestParam(required = false) String environment) {
+        if (environment != null) {
+            return service.getFlagsByEnvironment(environment);
+        }
         return service.getAllFlags();
     }
     
