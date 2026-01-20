@@ -1,0 +1,24 @@
+<div>
+  <h2>Feature Flags Dashboard</h2>
+
+  <label for="env">Environment:</label>
+  <select id="env" [(ngModel)]="environment" (change)="onEnvChange()">
+    <option value="dev">Dev</option>
+    <option value="prod">Prod</option>
+  </select>
+
+  <table border="1" style="margin-top: 10px; width: 100%;">
+    <tr>
+      <th>Name</th>
+      <th>Enabled</th>
+      <th>Toggle</th>
+    </tr>
+    <tr *ngFor="let flag of flags">
+      <td>{{ flag.name }}</td>
+      <td>{{ flag.enabled }}</td>
+      <td>
+        <button (click)="toggle(flag)">Toggle</button>
+      </td>
+    </tr>
+  </table>
+</div>
