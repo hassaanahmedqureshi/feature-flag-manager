@@ -8,17 +8,21 @@
   </select>
 
   <table border="1" style="margin-top: 10px; width: 100%;">
-    <tr>
-      <th>Name</th>
-      <th>Enabled</th>
-      <th>Toggle</th>
-    </tr>
-    <tr *ngFor="let flag of flags">
-      <td>{{ flag.name }}</td>
-      <td>{{ flag.enabled }}</td>
-      <td>
-        <button (click)="toggle(flag)">Toggle</button>
-      </td>
-    </tr>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Enabled</th>
+        <th>Toggle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flag of flags">
+        <td>{{ flag.name }}</td>
+        <td>{{ flag.enabled }}</td>
+        <td>
+          <button (click)="toggle(flag)">Toggle</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
