@@ -11,7 +11,7 @@ import { FeatureFlag, FeatureFlagService } from '../../services/feature-flag';
 })
 export class Dashboard {
   flags: FeatureFlag[] = [];
-  environment: string = 'dev';
+  environment: string = 'all';
 
   constructor(private flagService: FeatureFlagService) {
 

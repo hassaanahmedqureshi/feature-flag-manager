@@ -21,9 +21,9 @@ export class FeatureFlagService {
   }
 
   getFlags(environment: string): Observable<FeatureFlag[]> {
-
     console.log(environment);
-    return this.http.get<FeatureFlag[]>(`${this.apiUrl}?environment=${environment}`);
+    const url = environment === 'all' ? this.apiUrl : `${this.apiUrl}?environment=${environment}`;
+    return this.http.get<FeatureFlag[]>(url);
   }
 
   toggleFlag(id: number): Observable<FeatureFlag> {
